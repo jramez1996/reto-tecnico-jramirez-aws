@@ -1,0 +1,1218 @@
+{
+  "C:\\Users\\security\\Documents\\enviar\\reto-tecnico-jramirez": {
+    "versionSfCore": null,
+    "versionFramework": "4.4.7",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {
+      "default-aws-credential-resolver": "<REDACTED>"
+    },
+    "composeServiceName": null,
+    "servicePath": "C:\\Users\\security\\Documents\\enviar\\reto-tecnico-jramirez",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "reto-aws-lambda-crud",
+      "frameworkVersion": "4.4.7",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs18.x",
+        "lambdaHashingVersion": "20201221",
+        "region": "us-east-1",
+        "iamRoleStatements": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "dynamodb:*"
+            ],
+            "Resource": "arn:aws:dynamodb:us-east-1:448885973878:table/Person"
+          }
+        ],
+        "httpApi": {
+          "cors": {
+            "allowedOrigins": [
+              "*"
+            ],
+            "allowedHeaders": [
+              "Content-Type",
+              "Access-Control-Allow-Origin",
+              "Authorization"
+            ]
+          }
+        },
+        "stage": "dev",
+        "versionFunctions": true,
+        "compiledCloudFormationTemplate": {
+          "AWSTemplateFormatVersion": "2010-09-09",
+          "Description": "The AWS CloudFormation template for this Serverless application",
+          "Resources": {
+            "AddPersonLogGroup": {
+              "Type": "AWS::Logs::LogGroup",
+              "Properties": {
+                "LogGroupName": "/aws/lambda/reto-aws-lambda-crud-dev-addPerson"
+              }
+            },
+            "GetPersonsLogGroup": {
+              "Type": "AWS::Logs::LogGroup",
+              "Properties": {
+                "LogGroupName": "/aws/lambda/reto-aws-lambda-crud-dev-getPersons"
+              }
+            },
+            "GetStarWarsLogGroup": {
+              "Type": "AWS::Logs::LogGroup",
+              "Properties": {
+                "LogGroupName": "/aws/lambda/reto-aws-lambda-crud-dev-getStarWars"
+              }
+            },
+            "SwaggerLogGroup": {
+              "Type": "AWS::Logs::LogGroup",
+              "Properties": {
+                "LogGroupName": "/aws/lambda/reto-aws-lambda-crud-dev-swagger"
+              }
+            },
+            "OpenapiLogGroup": {
+              "Type": "AWS::Logs::LogGroup",
+              "Properties": {
+                "LogGroupName": "/aws/lambda/reto-aws-lambda-crud-dev-openapi"
+              }
+            },
+            "IamRoleLambdaExecution": {
+              "Type": "AWS::IAM::Role",
+              "Properties": {
+                "AssumeRolePolicyDocument": {
+                  "Version": "2012-10-17",
+                  "Statement": [
+                    {
+                      "Effect": "Allow",
+                      "Principal": {
+                        "Service": [
+                          "lambda.amazonaws.com"
+                        ]
+                      },
+                      "Action": [
+                        "sts:AssumeRole"
+                      ]
+                    }
+                  ]
+                },
+                "Policies": [
+                  {
+                    "PolicyName": {
+                      "Fn::Join": [
+                        "-",
+                        [
+                          "reto-aws-lambda-crud",
+                          "dev",
+                          "lambda"
+                        ]
+                      ]
+                    },
+                    "PolicyDocument": {
+                      "Version": "2012-10-17",
+                      "Statement": [
+                        {
+                          "Effect": "Allow",
+                          "Action": [
+                            "logs:CreateLogStream",
+                            "logs:CreateLogGroup",
+                            "logs:TagResource"
+                          ],
+                          "Resource": [
+                            {
+                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/reto-aws-lambda-crud-dev*:*"
+                            }
+                          ]
+                        },
+                        {
+                          "Effect": "Allow",
+                          "Action": [
+                            "logs:PutLogEvents"
+                          ],
+                          "Resource": [
+                            {
+                              "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/reto-aws-lambda-crud-dev*:*:*"
+                            }
+                          ]
+                        },
+                        {
+                          "Effect": "Allow",
+                          "Action": [
+                            "dynamodb:*"
+                          ],
+                          "Resource": "arn:aws:dynamodb:us-east-1:448885973878:table/Person"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "Path": "/",
+                "RoleName": {
+                  "Fn::Join": [
+                    "-",
+                    [
+                      "reto-aws-lambda-crud",
+                      "dev",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "lambdaRole"
+                    ]
+                  ]
+                }
+              }
+            },
+            "AddPersonLambdaFunction": {
+              "Type": "AWS::Lambda::Function",
+              "Properties": {
+                "Code": {
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
+                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731158553857-2024-11-09T13:22:33.857Z/reto-aws-lambda-crud.zip"
+                },
+                "Handler": "src/domain/interfaces/controllers/PersonController.addPerson",
+                "Runtime": "nodejs18.x",
+                "FunctionName": "reto-aws-lambda-crud-dev-addPerson",
+                "MemorySize": 1024,
+                "Timeout": 6,
+                "Description": "Person object that needs to be added",
+                "Role": {
+                  "Fn::GetAtt": [
+                    "IamRoleLambdaExecution",
+                    "Arn"
+                  ]
+                }
+              },
+              "DependsOn": [
+                "AddPersonLogGroup"
+              ]
+            },
+            "GetPersonsLambdaFunction": {
+              "Type": "AWS::Lambda::Function",
+              "Properties": {
+                "Code": {
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
+                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731158553857-2024-11-09T13:22:33.857Z/reto-aws-lambda-crud.zip"
+                },
+                "Handler": "src/domain/interfaces/controllers/PersonController.getPersons",
+                "Runtime": "nodejs18.x",
+                "FunctionName": "reto-aws-lambda-crud-dev-getPersons",
+                "MemorySize": 1024,
+                "Timeout": 6,
+                "Role": {
+                  "Fn::GetAtt": [
+                    "IamRoleLambdaExecution",
+                    "Arn"
+                  ]
+                }
+              },
+              "DependsOn": [
+                "GetPersonsLogGroup"
+              ]
+            },
+            "GetStarWarsLambdaFunction": {
+              "Type": "AWS::Lambda::Function",
+              "Properties": {
+                "Code": {
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
+                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731158553857-2024-11-09T13:22:33.857Z/reto-aws-lambda-crud.zip"
+                },
+                "Handler": "src/domain/interfaces/controllers/StarWarsController.getStarWars",
+                "Runtime": "nodejs18.x",
+                "FunctionName": "reto-aws-lambda-crud-dev-getStarWars",
+                "MemorySize": 1024,
+                "Timeout": 6,
+                "Role": {
+                  "Fn::GetAtt": [
+                    "IamRoleLambdaExecution",
+                    "Arn"
+                  ]
+                }
+              },
+              "DependsOn": [
+                "GetStarWarsLogGroup"
+              ]
+            },
+            "SwaggerLambdaFunction": {
+              "Type": "AWS::Lambda::Function",
+              "Properties": {
+                "Code": {
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
+                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731158553857-2024-11-09T13:22:33.857Z/reto-aws-lambda-crud.zip"
+                },
+                "Handler": "src/swagger.swagger",
+                "Runtime": "nodejs18.x",
+                "FunctionName": "reto-aws-lambda-crud-dev-swagger",
+                "MemorySize": 1024,
+                "Timeout": 6,
+                "Role": {
+                  "Fn::GetAtt": [
+                    "IamRoleLambdaExecution",
+                    "Arn"
+                  ]
+                }
+              },
+              "DependsOn": [
+                "SwaggerLogGroup"
+              ]
+            },
+            "OpenapiLambdaFunction": {
+              "Type": "AWS::Lambda::Function",
+              "Properties": {
+                "Code": {
+                  "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
+                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731158553857-2024-11-09T13:22:33.857Z/reto-aws-lambda-crud.zip"
+                },
+                "Handler": "src/openapi.openapi",
+                "Runtime": "nodejs18.x",
+                "FunctionName": "reto-aws-lambda-crud-dev-openapi",
+                "MemorySize": 1024,
+                "Timeout": 6,
+                "Role": {
+                  "Fn::GetAtt": [
+                    "IamRoleLambdaExecution",
+                    "Arn"
+                  ]
+                }
+              },
+              "DependsOn": [
+                "OpenapiLogGroup"
+              ]
+            },
+            "AddPersonLambdaVersion6CQpsiw8wP371OCkvpg25oizmKv3kmi1HOGUqHnwmzw": {
+              "Type": "AWS::Lambda::Version",
+              "DeletionPolicy": "Retain",
+              "Properties": {
+                "FunctionName": {
+                  "Ref": "AddPersonLambdaFunction"
+                },
+                "CodeSha256": "1aeY7CNMm3xcvWKRvXs2M2sOrW+nABDS5+7pfuah6Xo=",
+                "Description": "Person object that needs to be added"
+              }
+            },
+            "GetPersonsLambdaVersionkLEiO4Sv7U5UmU8dPGaS2K9wVt76453sElgS7xwA": {
+              "Type": "AWS::Lambda::Version",
+              "DeletionPolicy": "Retain",
+              "Properties": {
+                "FunctionName": {
+                  "Ref": "GetPersonsLambdaFunction"
+                },
+                "CodeSha256": "1aeY7CNMm3xcvWKRvXs2M2sOrW+nABDS5+7pfuah6Xo="
+              }
+            },
+            "GetStarWarsLambdaVersionYovSroFyNdqb7x3Dhvem1g6gZkgMlq3LwTI4KQSpQfU": {
+              "Type": "AWS::Lambda::Version",
+              "DeletionPolicy": "Retain",
+              "Properties": {
+                "FunctionName": {
+                  "Ref": "GetStarWarsLambdaFunction"
+                },
+                "CodeSha256": "1aeY7CNMm3xcvWKRvXs2M2sOrW+nABDS5+7pfuah6Xo="
+              }
+            },
+            "SwaggerLambdaVersionMyPTj0trE2DbukqGx0E55w3oo2zCaREBdbo2JtX4hU": {
+              "Type": "AWS::Lambda::Version",
+              "DeletionPolicy": "Retain",
+              "Properties": {
+                "FunctionName": {
+                  "Ref": "SwaggerLambdaFunction"
+                },
+                "CodeSha256": "1aeY7CNMm3xcvWKRvXs2M2sOrW+nABDS5+7pfuah6Xo="
+              }
+            },
+            "OpenapiLambdaVersionqNauAXs4JAbCbxczpfodtWpf1upgXrsfRmpF7FYclgU": {
+              "Type": "AWS::Lambda::Version",
+              "DeletionPolicy": "Retain",
+              "Properties": {
+                "FunctionName": {
+                  "Ref": "OpenapiLambdaFunction"
+                },
+                "CodeSha256": "1aeY7CNMm3xcvWKRvXs2M2sOrW+nABDS5+7pfuah6Xo="
+              }
+            },
+            "ApiGatewayRestApi": {
+              "Type": "AWS::ApiGateway::RestApi",
+              "Properties": {
+                "Name": "dev-reto-aws-lambda-crud",
+                "EndpointConfiguration": {
+                  "Types": [
+                    "EDGE"
+                  ]
+                },
+                "Policy": ""
+              }
+            },
+            "ApiGatewayResourceSwagger": {
+              "Type": "AWS::ApiGateway::Resource",
+              "Properties": {
+                "ParentId": {
+                  "Fn::GetAtt": [
+                    "ApiGatewayRestApi",
+                    "RootResourceId"
+                  ]
+                },
+                "PathPart": "swagger",
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                }
+              }
+            },
+            "ApiGatewayResourceOpenapiyml": {
+              "Type": "AWS::ApiGateway::Resource",
+              "Properties": {
+                "ParentId": {
+                  "Fn::GetAtt": [
+                    "ApiGatewayRestApi",
+                    "RootResourceId"
+                  ]
+                },
+                "PathPart": "openapi.yml",
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                }
+              }
+            },
+            "ApiGatewayMethodSwaggerGet": {
+              "Type": "AWS::ApiGateway::Method",
+              "Properties": {
+                "HttpMethod": "GET",
+                "RequestParameters": {},
+                "ResourceId": {
+                  "Ref": "ApiGatewayResourceSwagger"
+                },
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                },
+                "ApiKeyRequired": "<REDACTED>",
+                "AuthorizationType": "NONE",
+                "Integration": {
+                  "IntegrationHttpMethod": "POST",
+                  "Type": "AWS_PROXY",
+                  "Uri": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        ":apigateway:",
+                        {
+                          "Ref": "AWS::Region"
+                        },
+                        ":lambda:path/2015-03-31/functions/",
+                        {
+                          "Fn::GetAtt": [
+                            "SwaggerLambdaFunction",
+                            "Arn"
+                          ]
+                        },
+                        "/invocations"
+                      ]
+                    ]
+                  }
+                },
+                "MethodResponses": []
+              },
+              "DependsOn": [
+                "SwaggerLambdaPermissionApiGateway"
+              ]
+            },
+            "ApiGatewayMethodOpenapiymlGet": {
+              "Type": "AWS::ApiGateway::Method",
+              "Properties": {
+                "HttpMethod": "GET",
+                "RequestParameters": {},
+                "ResourceId": {
+                  "Ref": "ApiGatewayResourceOpenapiyml"
+                },
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                },
+                "ApiKeyRequired": "<REDACTED>",
+                "AuthorizationType": "NONE",
+                "Integration": {
+                  "IntegrationHttpMethod": "POST",
+                  "Type": "AWS_PROXY",
+                  "Uri": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        ":apigateway:",
+                        {
+                          "Ref": "AWS::Region"
+                        },
+                        ":lambda:path/2015-03-31/functions/",
+                        {
+                          "Fn::GetAtt": [
+                            "OpenapiLambdaFunction",
+                            "Arn"
+                          ]
+                        },
+                        "/invocations"
+                      ]
+                    ]
+                  }
+                },
+                "MethodResponses": []
+              },
+              "DependsOn": [
+                "OpenapiLambdaPermissionApiGateway"
+              ]
+            },
+            "ApiGatewayDeployment1731158546641": {
+              "Type": "AWS::ApiGateway::Deployment",
+              "Properties": {
+                "RestApiId": {
+                  "Ref": "ApiGatewayRestApi"
+                },
+                "StageName": "dev"
+              },
+              "DependsOn": [
+                "ApiGatewayMethodSwaggerGet",
+                "ApiGatewayMethodOpenapiymlGet"
+              ]
+            },
+            "SwaggerLambdaPermissionApiGateway": {
+              "Type": "AWS::Lambda::Permission",
+              "Properties": {
+                "FunctionName": {
+                  "Fn::GetAtt": [
+                    "SwaggerLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "ApiGatewayRestApi"
+                      },
+                      "/*/*"
+                    ]
+                  ]
+                }
+              }
+            },
+            "OpenapiLambdaPermissionApiGateway": {
+              "Type": "AWS::Lambda::Permission",
+              "Properties": {
+                "FunctionName": {
+                  "Fn::GetAtt": [
+                    "OpenapiLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "ApiGatewayRestApi"
+                      },
+                      "/*/*"
+                    ]
+                  ]
+                }
+              }
+            },
+            "HttpApi": {
+              "Type": "AWS::ApiGatewayV2::Api",
+              "Properties": {
+                "Name": "dev-reto-aws-lambda-crud",
+                "ProtocolType": "HTTP",
+                "CorsConfiguration": {
+                  "AllowCredentials": "<REDACTED>",
+                  "AllowHeaders": [
+                    "Content-Type",
+                    "Access-Control-Allow-Origin",
+                    "Authorization"
+                  ],
+                  "AllowMethods": [
+                    "OPTIONS",
+                    "POST",
+                    "GET"
+                  ],
+                  "AllowOrigins": [
+                    "*"
+                  ]
+                }
+              }
+            },
+            "HttpApiStage": {
+              "Type": "AWS::ApiGatewayV2::Stage",
+              "Properties": {
+                "ApiId": {
+                  "Ref": "HttpApi"
+                },
+                "StageName": "$default",
+                "AutoDeploy": true,
+                "DefaultRouteSettings": {
+                  "DetailedMetricsEnabled": false
+                }
+              }
+            },
+            "AddPersonLambdaPermissionHttpApi": {
+              "Type": "AWS::Lambda::Permission",
+              "Properties": {
+                "FunctionName": {
+                  "Fn::GetAtt": [
+                    "AddPersonLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "HttpApi"
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              }
+            },
+            "HttpApiIntegrationAddPerson": {
+              "Type": "AWS::ApiGatewayV2::Integration",
+              "Properties": {
+                "ApiId": {
+                  "Ref": "HttpApi"
+                },
+                "IntegrationType": "AWS_PROXY",
+                "IntegrationUri": {
+                  "Fn::GetAtt": [
+                    "AddPersonLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "PayloadFormatVersion": "2.0",
+                "TimeoutInMillis": 30000
+              }
+            },
+            "HttpApiRoutePostPerson": {
+              "Type": "AWS::ApiGatewayV2::Route",
+              "Properties": {
+                "ApiId": {
+                  "Ref": "HttpApi"
+                },
+                "RouteKey": "POST /person",
+                "Target": {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      "integrations",
+                      {
+                        "Ref": "HttpApiIntegrationAddPerson"
+                      }
+                    ]
+                  ]
+                }
+              },
+              "DependsOn": "HttpApiIntegrationAddPerson"
+            },
+            "GetPersonsLambdaPermissionHttpApi": {
+              "Type": "AWS::Lambda::Permission",
+              "Properties": {
+                "FunctionName": {
+                  "Fn::GetAtt": [
+                    "GetPersonsLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "HttpApi"
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              }
+            },
+            "HttpApiIntegrationGetPersons": {
+              "Type": "AWS::ApiGatewayV2::Integration",
+              "Properties": {
+                "ApiId": {
+                  "Ref": "HttpApi"
+                },
+                "IntegrationType": "AWS_PROXY",
+                "IntegrationUri": {
+                  "Fn::GetAtt": [
+                    "GetPersonsLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "PayloadFormatVersion": "2.0",
+                "TimeoutInMillis": 30000
+              }
+            },
+            "HttpApiRouteGetPersons": {
+              "Type": "AWS::ApiGatewayV2::Route",
+              "Properties": {
+                "ApiId": {
+                  "Ref": "HttpApi"
+                },
+                "RouteKey": "GET /persons",
+                "Target": {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      "integrations",
+                      {
+                        "Ref": "HttpApiIntegrationGetPersons"
+                      }
+                    ]
+                  ]
+                }
+              },
+              "DependsOn": "HttpApiIntegrationGetPersons"
+            },
+            "GetStarWarsLambdaPermissionHttpApi": {
+              "Type": "AWS::Lambda::Permission",
+              "Properties": {
+                "FunctionName": {
+                  "Fn::GetAtt": [
+                    "GetStarWarsLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":execute-api:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":",
+                      {
+                        "Ref": "HttpApi"
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              }
+            },
+            "HttpApiIntegrationGetStarWars": {
+              "Type": "AWS::ApiGatewayV2::Integration",
+              "Properties": {
+                "ApiId": {
+                  "Ref": "HttpApi"
+                },
+                "IntegrationType": "AWS_PROXY",
+                "IntegrationUri": {
+                  "Fn::GetAtt": [
+                    "GetStarWarsLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "PayloadFormatVersion": "2.0",
+                "TimeoutInMillis": 30000
+              }
+            },
+            "HttpApiRouteGetGetstarwars": {
+              "Type": "AWS::ApiGatewayV2::Route",
+              "Properties": {
+                "ApiId": {
+                  "Ref": "HttpApi"
+                },
+                "RouteKey": "GET /getStarWars",
+                "Target": {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      "integrations",
+                      {
+                        "Ref": "HttpApiIntegrationGetStarWars"
+                      }
+                    ]
+                  ]
+                }
+              },
+              "DependsOn": "HttpApiIntegrationGetStarWars"
+            },
+            "PersonTable": {
+              "Type": "AWS::DynamoDB::Table",
+              "Properties": {
+                "TableName": "Person",
+                "BillingMode": "PAY_PER_REQUEST",
+                "AttributeDefinitions": [
+                  {
+                    "AttributeName": "id",
+                    "AttributeType": "S"
+                  }
+                ],
+                "KeySchema": [
+                  {
+                    "AttributeName": "id",
+                    "KeyType": "HASH"
+                  }
+                ]
+              }
+            }
+          },
+          "Outputs": {
+            "ServerlessDeploymentBucketName": {
+              "Value": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
+              "Export": {
+                "Name": "sls-reto-aws-lambda-crud-dev-ServerlessDeploymentBucketName"
+              }
+            },
+            "AddPersonLambdaFunctionQualifiedArn": {
+              "Description": "Current Lambda function version",
+              "Value": {
+                "Ref": "AddPersonLambdaVersion6CQpsiw8wP371OCkvpg25oizmKv3kmi1HOGUqHnwmzw"
+              },
+              "Export": {
+                "Name": "sls-reto-aws-lambda-crud-dev-AddPersonLambdaFunctionQualifiedArn"
+              }
+            },
+            "GetPersonsLambdaFunctionQualifiedArn": {
+              "Description": "Current Lambda function version",
+              "Value": {
+                "Ref": "GetPersonsLambdaVersionkLEiO4Sv7U5UmU8dPGaS2K9wVt76453sElgS7xwA"
+              },
+              "Export": {
+                "Name": "sls-reto-aws-lambda-crud-dev-GetPersonsLambdaFunctionQualifiedArn"
+              }
+            },
+            "GetStarWarsLambdaFunctionQualifiedArn": {
+              "Description": "Current Lambda function version",
+              "Value": {
+                "Ref": "GetStarWarsLambdaVersionYovSroFyNdqb7x3Dhvem1g6gZkgMlq3LwTI4KQSpQfU"
+              },
+              "Export": {
+                "Name": "sls-reto-aws-lambda-crud-dev-GetStarWarsLambdaFunctionQualifiedArn"
+              }
+            },
+            "SwaggerLambdaFunctionQualifiedArn": {
+              "Description": "Current Lambda function version",
+              "Value": {
+                "Ref": "SwaggerLambdaVersionMyPTj0trE2DbukqGx0E55w3oo2zCaREBdbo2JtX4hU"
+              },
+              "Export": {
+                "Name": "sls-reto-aws-lambda-crud-dev-SwaggerLambdaFunctionQualifiedArn"
+              }
+            },
+            "OpenapiLambdaFunctionQualifiedArn": {
+              "Description": "Current Lambda function version",
+              "Value": {
+                "Ref": "OpenapiLambdaVersionqNauAXs4JAbCbxczpfodtWpf1upgXrsfRmpF7FYclgU"
+              },
+              "Export": {
+                "Name": "sls-reto-aws-lambda-crud-dev-OpenapiLambdaFunctionQualifiedArn"
+              }
+            },
+            "ServiceEndpoint": {
+              "Description": "URL of the service endpoint",
+              "Value": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "https://",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    ".execute-api.",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ".",
+                    {
+                      "Ref": "AWS::URLSuffix"
+                    },
+                    "/dev"
+                  ]
+                ]
+              },
+              "Export": {
+                "Name": "sls-reto-aws-lambda-crud-dev-ServiceEndpoint"
+              }
+            },
+            "HttpApiId": {
+              "Description": "Id of the HTTP API",
+              "Value": {
+                "Ref": "HttpApi"
+              },
+              "Export": {
+                "Name": "sls-reto-aws-lambda-crud-dev-HttpApiId"
+              }
+            },
+            "HttpApiUrl": {
+              "Description": "URL of the HTTP API",
+              "Value": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "https://",
+                    {
+                      "Ref": "HttpApi"
+                    },
+                    ".execute-api.",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ".",
+                    {
+                      "Ref": "AWS::URLSuffix"
+                    }
+                  ]
+                ]
+              },
+              "Export": {
+                "Name": "sls-reto-aws-lambda-crud-dev-HttpApiUrl"
+              }
+            }
+          }
+        },
+        "vpc": {}
+      },
+      "functions": {
+        "addPerson": {
+          "handler": "src/domain/interfaces/controllers/PersonController.addPerson",
+          "events": [
+            {
+              "httpApi": {
+                "path": "/person",
+                "method": "post"
+              },
+              "resolvedMethod": "POST",
+              "resolvedPath": "/person"
+            }
+          ],
+          "description": "Person object that needs to be added",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nationalIdentity": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "eyeColor": {
+                    "type": "string"
+                  },
+                  "dateBirth": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
+              }
+            }
+          },
+          "name": "reto-aws-lambda-crud-dev-addPerson",
+          "requestBody": null,
+          "package": {},
+          "memory": 1024,
+          "timeout": 6,
+          "runtime": "nodejs18.x",
+          "vpc": {},
+          "versionLogicalId": "AddPersonLambdaVersion6CQpsiw8wP371OCkvpg25oizmKv3kmi1HOGUqHnwmzw"
+        },
+        "getPersons": {
+          "handler": "src/domain/interfaces/controllers/PersonController.getPersons",
+          "events": [
+            {
+              "httpApi": {
+                "path": "/persons",
+                "method": "get"
+              },
+              "resolvedMethod": "GET",
+              "resolvedPath": "/persons"
+            }
+          ],
+          "name": "reto-aws-lambda-crud-dev-getPersons",
+          "package": {},
+          "memory": 1024,
+          "timeout": 6,
+          "runtime": "nodejs18.x",
+          "vpc": {},
+          "versionLogicalId": "GetPersonsLambdaVersionkLEiO4Sv7U5UmU8dPGaS2K9wVt76453sElgS7xwA"
+        },
+        "getStarWars": {
+          "handler": "src/domain/interfaces/controllers/StarWarsController.getStarWars",
+          "events": [
+            {
+              "httpApi": {
+                "path": "/getStarWars",
+                "method": "get"
+              },
+              "resolvedMethod": "GET",
+              "resolvedPath": "/getStarWars"
+            }
+          ],
+          "name": "reto-aws-lambda-crud-dev-getStarWars",
+          "package": {},
+          "memory": 1024,
+          "timeout": 6,
+          "runtime": "nodejs18.x",
+          "vpc": {},
+          "versionLogicalId": "GetStarWarsLambdaVersionYovSroFyNdqb7x3Dhvem1g6gZkgMlq3LwTI4KQSpQfU"
+        },
+        "swagger": {
+          "handler": "src/swagger.swagger",
+          "events": [
+            {
+              "http": {
+                "path": "swagger",
+                "method": "get",
+                "integration": "AWS_PROXY"
+              }
+            }
+          ],
+          "name": "reto-aws-lambda-crud-dev-swagger",
+          "package": {},
+          "memory": 1024,
+          "timeout": 6,
+          "runtime": "nodejs18.x",
+          "vpc": {},
+          "versionLogicalId": "SwaggerLambdaVersionMyPTj0trE2DbukqGx0E55w3oo2zCaREBdbo2JtX4hU"
+        },
+        "openapi": {
+          "handler": "src/openapi.openapi",
+          "events": [
+            {
+              "http": {
+                "path": "openapi.yml",
+                "method": "get",
+                "integration": "AWS_PROXY"
+              }
+            }
+          ],
+          "name": "reto-aws-lambda-crud-dev-openapi",
+          "package": {},
+          "memory": 1024,
+          "timeout": 6,
+          "runtime": "nodejs18.x",
+          "vpc": {},
+          "versionLogicalId": "OpenapiLambdaVersionqNauAXs4JAbCbxczpfodtWpf1upgXrsfRmpF7FYclgU"
+        }
+      },
+      "resources": {
+        "Resources": {
+          "PersonTable": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+              "TableName": "Person",
+              "BillingMode": "PAY_PER_REQUEST",
+              "AttributeDefinitions": [
+                {
+                  "AttributeName": "id",
+                  "AttributeType": "S"
+                }
+              ],
+              "KeySchema": [
+                {
+                  "AttributeName": "id",
+                  "KeyType": "HASH"
+                }
+              ]
+            }
+          }
+        },
+        "Outputs": {}
+      },
+      "plugins": [
+        "serverless-openapi-documentation"
+      ],
+      "custom": {
+        "documentation": {
+          "api": {
+            "info": {
+              "title": "My API",
+              "version": "1.0.0",
+              "description": "API description"
+            },
+            "servers": [
+              {
+                "url": "https://api.example.com"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "serviceRawFile": "service: reto-aws-lambda-crud\r\nframeworkVersion: '4.4.7'\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  lambdaHashingVersion: '20201221'\r\n  region: us-east-1\r\n  iamRoleStatements:\r\n    - Effect: Allow\r\n      Action:\r\n        - dynamodb:*\r\n      Resource:\r\n        - arn:aws:dynamodb:us-east-1:448885973878:table/Person\r\n  httpApi:\r\n    cors:\r\n      allowedOrigins:\r\n        - '*'\r\n      allowedHeaders:\r\n        - Content-Type\r\n        - Access-Control-Allow-Origin\r\n        - Authorization\r\n\r\nfunctions:\r\n  addPerson:\r\n    handler: src/domain/interfaces/controllers/PersonController.addPerson\r\n    events:\r\n      - httpApi:\r\n          path: /person\r\n          method: post\r\n    requestBody:\r\n    description: \"Person object that needs to be added\"\r\n    required: true\r\n    content:\r\n      application/json:\r\n        schema:\r\n          type: object\r\n          properties:\r\n            nationalIdentity:\r\n              type: string\r\n            name:\r\n              type: string\r\n            gender:\r\n              type: string\r\n            location:\r\n              type: string\r\n            eyeColor:\r\n              type: string\r\n            dateBirth:\r\n              type: string\r\n              format: date\r\n\r\n\r\n  getPersons:\r\n    handler: src/domain/interfaces/controllers/PersonController.getPersons\r\n    events:\r\n      - httpApi:\r\n          path: /persons\r\n          method: get\r\n\r\n\r\n  getStarWars:\r\n    handler: src/domain/interfaces/controllers/StarWarsController.getStarWars\r\n    events:\r\n      - httpApi:\r\n          path: /getStarWars\r\n          method: get\r\n\r\n\r\n  swagger:\r\n    handler: src/swagger.swagger\r\n    events:\r\n      - http:\r\n          path: swagger\r\n          method: get\r\n\r\n  openapi:\r\n    handler: src/openapi.openapi\r\n    events:\r\n      - http:\r\n          path: openapi.yml\r\n          method: get\r\n\r\nresources:\r\n  Resources:\r\n    PersonTable:\r\n      Type: AWS::DynamoDB::Table\r\n      Properties:\r\n        TableName: Person\r\n        BillingMode: PAY_PER_REQUEST\r\n        AttributeDefinitions:\r\n          - AttributeName: id\r\n            AttributeType: S\r\n        KeySchema:\r\n          - AttributeName: id\r\n            KeyType: HASH\r\n\r\nplugins:\r\n  - serverless-openapi-documentation\r\n\r\ncustom:\r\n  documentation:\r\n    api:\r\n      info:\r\n        title: \"My API\"\r\n        version: \"1.0.0\"\r\n        description: \"API description\"\r\n      servers:\r\n        - url: \"https://api.example.com\"  # Cambia esto a la URL de tu API en producción\r\n",
+    "command": [
+      "deploy"
+    ],
+    "options": {},
+    "error": null,
+    "params": {},
+    "machineId": "2212cd56cca5c566442e7d2b9174d66d",
+    "stage": "dev",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "28f4855c-a57b-40e1-b3e5-bf88a5b8ba0d",
+    "orgName": "juanrs",
+    "userId": "lP0jKC4sHD0wXFBGqB",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "juanrs",
+    "subscription": null,
+    "userEmail": "jramez54@gmail.com",
+    "serviceProviderAwsRegion": "us-east-1",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "448885973878",
+    "projectType": "traditional",
+    "versionSf": "4.4.7",
+    "serviceProviderAwsCfStackName": "reto-aws-lambda-crud-dev",
+    "integrations": {},
+    "serviceUniqueId": "arn:aws:cloudformation:us-east-1:448885973878:stack/reto-aws-lambda-crud-dev/3d51ea00-9e9c-11ef-9958-12f2364032c7",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:448885973878:stack/reto-aws-lambda-crud-dev/3d51ea00-9e9c-11ef-9958-12f2364032c7",
+    "serviceProviderAwsCfStackCreated": "2024-11-09T13:12:15.344Z",
+    "serviceProviderAwsCfStackUpdated": "2024-11-09T13:22:56.441Z",
+    "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
+    "serviceProviderAwsCfStackOutputs": [
+      {
+        "OutputKey": "SwaggerLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-swagger:134",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-reto-aws-lambda-crud-dev-SwaggerLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "OpenapiLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-openapi:133",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-reto-aws-lambda-crud-dev-OpenapiLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "HttpApiId",
+        "OutputValue": "f52w6gtrzl",
+        "Description": "Id of the HTTP API",
+        "ExportName": "sls-reto-aws-lambda-crud-dev-HttpApiId"
+      },
+      {
+        "OutputKey": "AddPersonLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-addPerson:142",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-reto-aws-lambda-crud-dev-AddPersonLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "GetPersonsLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-getPersons:141",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-reto-aws-lambda-crud-dev-GetPersonsLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "GetStarWarsLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-getStarWars:141",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-reto-aws-lambda-crud-dev-GetStarWarsLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "ServiceEndpoint",
+        "OutputValue": "https://op82p7dws1.execute-api.us-east-1.amazonaws.com/dev",
+        "Description": "URL of the service endpoint",
+        "ExportName": "sls-reto-aws-lambda-crud-dev-ServiceEndpoint"
+      },
+      {
+        "OutputKey": "ServerlessDeploymentBucketName",
+        "OutputValue": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
+        "ExportName": "sls-reto-aws-lambda-crud-dev-ServerlessDeploymentBucketName"
+      },
+      {
+        "OutputKey": "HttpApiUrl",
+        "OutputValue": "https://f52w6gtrzl.execute-api.us-east-1.amazonaws.com",
+        "Description": "URL of the HTTP API",
+        "ExportName": "sls-reto-aws-lambda-crud-dev-HttpApiUrl"
+      }
+    ]
+  }
+}

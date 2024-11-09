@@ -1,0 +1,109 @@
+service: reto-aws-lambda-crud
+frameworkVersion: '4.4.7'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  lambdaHashingVersion: '20201221'
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource:
+        - arn:aws:dynamodb:us-east-1:448885973878:table/Person
+  httpApi:
+    cors:
+      allowedOrigins:
+        - '*'
+      allowedHeaders:
+        - Content-Type
+        - Access-Control-Allow-Origin
+        - Authorization
+
+functions:
+  addPerson:
+    handler: src/domain/interfaces/controllers/PersonController.addPerson
+    events:
+      - httpApi:
+          path: /person
+          method: post
+    requestBody:
+    description: "Person object that needs to be added"
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            nationalIdentity:
+              type: string
+            name:
+              type: string
+            gender:
+              type: string
+            location:
+              type: string
+            eyeColor:
+              type: string
+            dateBirth:
+              type: string
+              format: date
+
+
+  getPersons:
+    handler: src/domain/interfaces/controllers/PersonController.getPersons
+    events:
+      - httpApi:
+          path: /persons
+          method: get
+
+
+  getStarWars:
+    handler: src/domain/interfaces/controllers/StarWarsController.getStarWars
+    events:
+      - httpApi:
+          path: /getStarWars
+          method: get
+
+
+  swagger:
+    handler: src/swagger.swagger
+    events:
+      - http:
+          path: swagger
+          method: get
+
+  openapi:
+    handler: src/openapi.openapi
+    events:
+      - http:
+          path: openapi.yml
+          method: get
+
+resources:
+  Resources:
+    PersonTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Person
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+
+plugins:
+  - serverless-openapi-documentation
+
+custom:
+  documentation:
+    api:
+      info:
+        title: "My API"
+        version: "1.0.0"
+        description: "API description"
+      servers:
+        - url: "https://api.example.com"  # Cambia esto a la URL de tu API en producción

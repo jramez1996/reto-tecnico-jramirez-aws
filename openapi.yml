@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info:
+  title: My API
+  version: 1.0.0
+  description: API description
+servers:
+  - url: https://p13que11s1.execute-api.us-east-1.amazonaws.com/
+
+paths:
+  /person:
+    post:
+      summary: Add a Person
+      description: Creates a new person in the database.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nationalIdentity:
+                  type: string
+                name:
+                  type: string
+                gender:
+                  type: string
+                location:
+                  type: string
+                eyeColor:
+                  type: string
+                dateBirth:
+                  type: string
+                  format: date
+      responses:
+        '201':
+          description: Person created
+        '400':
+          description: Bad request
+
+ 
+  /persons:
+    get:
+      summary: Get All Persons
+      description: Retrieves a list of all persons in the database.
+      responses:
+        '200':
+          description: A list of persons
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    nationalIdentity:
+                      type: string
+                    name:
+                      type: string
+                    gender:
+                      type: string
+                    location:
+                      type: string
+                    eyeColor:
+                      type: string
+                    dateBirth:
+                      type: string
+                      format: date
+
+  /getStarWars:
+    get:
+      summary: Get Star Wars Data
+      description: Retrieves data related to Star Wars.
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: Data not found
+
