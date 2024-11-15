@@ -6,11 +6,15 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 class PersonDBRepository {
   async create(person) {
-    const params = {
-      TableName: "Person",
-      Item: person,
-    };
-    return await dynamodb.put(params).promise();
+    try {
+      const params = {
+        TableName: "Person",
+        Item: person,
+      };
+      return await dynamodb.put(params).promise();
+    } catch (error) {
+        console.log("error-",error);
+    }
   }
 
   async getAll() {

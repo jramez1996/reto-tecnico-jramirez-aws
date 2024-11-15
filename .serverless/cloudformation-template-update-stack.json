@@ -122,14 +122,13 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
-          "S3Key": "serverless/reto-aws-lambda-crud/dev/1731158553857-2024-11-09T13:22:33.857Z/reto-aws-lambda-crud.zip"
+          "S3Key": "serverless/reto-aws-lambda-crud/dev/1731634062624-2024-11-15T01:27:42.624Z/reto-aws-lambda-crud.zip"
         },
         "Handler": "src/domain/interfaces/controllers/PersonController.addPerson",
         "Runtime": "nodejs18.x",
         "FunctionName": "reto-aws-lambda-crud-dev-addPerson",
         "MemorySize": 1024,
         "Timeout": 6,
-        "Description": "Person object that needs to be added",
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -146,7 +145,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
-          "S3Key": "serverless/reto-aws-lambda-crud/dev/1731158553857-2024-11-09T13:22:33.857Z/reto-aws-lambda-crud.zip"
+          "S3Key": "serverless/reto-aws-lambda-crud/dev/1731634062624-2024-11-15T01:27:42.624Z/reto-aws-lambda-crud.zip"
         },
         "Handler": "src/domain/interfaces/controllers/PersonController.getPersons",
         "Runtime": "nodejs18.x",
@@ -169,7 +168,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
-          "S3Key": "serverless/reto-aws-lambda-crud/dev/1731158553857-2024-11-09T13:22:33.857Z/reto-aws-lambda-crud.zip"
+          "S3Key": "serverless/reto-aws-lambda-crud/dev/1731634062624-2024-11-15T01:27:42.624Z/reto-aws-lambda-crud.zip"
         },
         "Handler": "src/domain/interfaces/controllers/StarWarsController.getStarWars",
         "Runtime": "nodejs18.x",
@@ -192,7 +191,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
-          "S3Key": "serverless/reto-aws-lambda-crud/dev/1731158553857-2024-11-09T13:22:33.857Z/reto-aws-lambda-crud.zip"
+          "S3Key": "serverless/reto-aws-lambda-crud/dev/1731634062624-2024-11-15T01:27:42.624Z/reto-aws-lambda-crud.zip"
         },
         "Handler": "src/swagger.swagger",
         "Runtime": "nodejs18.x",
@@ -215,7 +214,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
-          "S3Key": "serverless/reto-aws-lambda-crud/dev/1731158553857-2024-11-09T13:22:33.857Z/reto-aws-lambda-crud.zip"
+          "S3Key": "serverless/reto-aws-lambda-crud/dev/1731634062624-2024-11-15T01:27:42.624Z/reto-aws-lambda-crud.zip"
         },
         "Handler": "src/openapi.openapi",
         "Runtime": "nodejs18.x",
@@ -233,55 +232,54 @@
         "OpenapiLogGroup"
       ]
     },
-    "AddPersonLambdaVersion6CQpsiw8wP371OCkvpg25oizmKv3kmi1HOGUqHnwmzw": {
+    "AddPersonLambdaVersionbDNrVMxaBku6IM4qJQJChMM1avT6JNYvRCtc2dn0CdA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AddPersonLambdaFunction"
         },
-        "CodeSha256": "1aeY7CNMm3xcvWKRvXs2M2sOrW+nABDS5+7pfuah6Xo=",
-        "Description": "Person object that needs to be added"
+        "CodeSha256": "zQj4G1QgWcJdIqWB2fyzp//PGOBrI0CTK95li0ngN0Y="
       }
     },
-    "GetPersonsLambdaVersionkLEiO4Sv7U5UmU8dPGaS2K9wVt76453sElgS7xwA": {
+    "GetPersonsLambdaVersion47p3E6ieKWa3NDv0dLD7TTEgmYPXo7VlP5oj3V2fl8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetPersonsLambdaFunction"
         },
-        "CodeSha256": "1aeY7CNMm3xcvWKRvXs2M2sOrW+nABDS5+7pfuah6Xo="
+        "CodeSha256": "zQj4G1QgWcJdIqWB2fyzp//PGOBrI0CTK95li0ngN0Y="
       }
     },
-    "GetStarWarsLambdaVersionYovSroFyNdqb7x3Dhvem1g6gZkgMlq3LwTI4KQSpQfU": {
+    "GetStarWarsLambdaVersionzU2ChPHznqLgFltaY9Ib9IpckhhtrjN58cVH6mGyw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetStarWarsLambdaFunction"
         },
-        "CodeSha256": "1aeY7CNMm3xcvWKRvXs2M2sOrW+nABDS5+7pfuah6Xo="
+        "CodeSha256": "zQj4G1QgWcJdIqWB2fyzp//PGOBrI0CTK95li0ngN0Y="
       }
     },
-    "SwaggerLambdaVersionMyPTj0trE2DbukqGx0E55w3oo2zCaREBdbo2JtX4hU": {
+    "SwaggerLambdaVersionkpNvRaN6JEGtsOz6H2Kvqlk61h0qKY46Pnv33kS5Z0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SwaggerLambdaFunction"
         },
-        "CodeSha256": "1aeY7CNMm3xcvWKRvXs2M2sOrW+nABDS5+7pfuah6Xo="
+        "CodeSha256": "zQj4G1QgWcJdIqWB2fyzp//PGOBrI0CTK95li0ngN0Y="
       }
     },
-    "OpenapiLambdaVersionqNauAXs4JAbCbxczpfodtWpf1upgXrsfRmpF7FYclgU": {
+    "OpenapiLambdaVersionBf6PWRf1BJGi3o47CR3mnk9OvUtzcswpI9I3g5lkQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "OpenapiLambdaFunction"
         },
-        "CodeSha256": "1aeY7CNMm3xcvWKRvXs2M2sOrW+nABDS5+7pfuah6Xo="
+        "CodeSha256": "zQj4G1QgWcJdIqWB2fyzp//PGOBrI0CTK95li0ngN0Y="
       }
     },
     "ApiGatewayRestApi": {
@@ -418,7 +416,7 @@
         "OpenapiLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1731158546641": {
+    "ApiGatewayDeployment1731634054963": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -764,25 +762,6 @@
         }
       },
       "DependsOn": "HttpApiIntegrationGetStarWars"
-    },
-    "PersonTable": {
-      "Type": "AWS::DynamoDB::Table",
-      "Properties": {
-        "TableName": "Person",
-        "BillingMode": "PAY_PER_REQUEST",
-        "AttributeDefinitions": [
-          {
-            "AttributeName": "id",
-            "AttributeType": "S"
-          }
-        ],
-        "KeySchema": [
-          {
-            "AttributeName": "id",
-            "KeyType": "HASH"
-          }
-        ]
-      }
     }
   },
   "Outputs": {
@@ -795,7 +774,7 @@
     "AddPersonLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AddPersonLambdaVersion6CQpsiw8wP371OCkvpg25oizmKv3kmi1HOGUqHnwmzw"
+        "Ref": "AddPersonLambdaVersionbDNrVMxaBku6IM4qJQJChMM1avT6JNYvRCtc2dn0CdA"
       },
       "Export": {
         "Name": "sls-reto-aws-lambda-crud-dev-AddPersonLambdaFunctionQualifiedArn"
@@ -804,7 +783,7 @@
     "GetPersonsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetPersonsLambdaVersionkLEiO4Sv7U5UmU8dPGaS2K9wVt76453sElgS7xwA"
+        "Ref": "GetPersonsLambdaVersion47p3E6ieKWa3NDv0dLD7TTEgmYPXo7VlP5oj3V2fl8"
       },
       "Export": {
         "Name": "sls-reto-aws-lambda-crud-dev-GetPersonsLambdaFunctionQualifiedArn"
@@ -813,7 +792,7 @@
     "GetStarWarsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetStarWarsLambdaVersionYovSroFyNdqb7x3Dhvem1g6gZkgMlq3LwTI4KQSpQfU"
+        "Ref": "GetStarWarsLambdaVersionzU2ChPHznqLgFltaY9Ib9IpckhhtrjN58cVH6mGyw"
       },
       "Export": {
         "Name": "sls-reto-aws-lambda-crud-dev-GetStarWarsLambdaFunctionQualifiedArn"
@@ -822,7 +801,7 @@
     "SwaggerLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SwaggerLambdaVersionMyPTj0trE2DbukqGx0E55w3oo2zCaREBdbo2JtX4hU"
+        "Ref": "SwaggerLambdaVersionkpNvRaN6JEGtsOz6H2Kvqlk61h0qKY46Pnv33kS5Z0"
       },
       "Export": {
         "Name": "sls-reto-aws-lambda-crud-dev-SwaggerLambdaFunctionQualifiedArn"
@@ -831,7 +810,7 @@
     "OpenapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "OpenapiLambdaVersionqNauAXs4JAbCbxczpfodtWpf1upgXrsfRmpF7FYclgU"
+        "Ref": "OpenapiLambdaVersionBf6PWRf1BJGi3o47CR3mnk9OvUtzcswpI9I3g5lkQ"
       },
       "Export": {
         "Name": "sls-reto-aws-lambda-crud-dev-OpenapiLambdaFunctionQualifiedArn"

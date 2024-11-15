@@ -29,27 +29,26 @@ functions:
           path: /person
           method: post
     requestBody:
-    description: "Person object that needs to be added"
-    required: true
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            nationalIdentity:
-              type: string
-            name:
-              type: string
-            gender:
-              type: string
-            location:
-              type: string
-            eyeColor:
-              type: string
-            dateBirth:
-              type: string
-              format: date
-
+      description: "Person object that needs to be added"
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              nationalIdentity:
+                type: string
+              name:
+                type: string
+              gender:
+                type: string
+              location:
+                type: string
+              eyeColor:
+                type: string
+              dateBirth:
+                type: string
+                format: date
 
   getPersons:
     handler: src/domain/interfaces/controllers/PersonController.getPersons
@@ -58,14 +57,12 @@ functions:
           path: /persons
           method: get
 
-
   getStarWars:
     handler: src/domain/interfaces/controllers/StarWarsController.getStarWars
     events:
       - httpApi:
           path: /getStarWars
           method: get
-
 
   swagger:
     handler: src/swagger.swagger
@@ -81,22 +78,10 @@ functions:
           path: openapi.yml
           method: get
 
-resources:
-  Resources:
-    PersonTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: Person
-        BillingMode: PAY_PER_REQUEST
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-
+ 
 plugins:
   - serverless-openapi-documentation
+  - serverless-offline
 
 custom:
   documentation:

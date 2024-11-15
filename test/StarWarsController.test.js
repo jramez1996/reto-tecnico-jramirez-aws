@@ -26,14 +26,9 @@ describe("StarWars Controller", () => {
         role: "Jedi Knight",
         planet: "Tatooine"
       };
-
-      // Simulamos que `getStarWars` devuelve datos correctamente
       starWarsServiceMock.getStarWars.resolves(mockStarWarsData);
-
       const event = {}; // Si no necesitas parámetros específicos en el evento, lo dejamos vacío
       const response = await getStarWars(event);
-      console.log("response:",response);
-      // Verificamos que el código de estado sea 200
       expect(response.statusCode).to.equal(200);
 
       // Verificamos que el cuerpo de la respuesta contiene los datos correctos

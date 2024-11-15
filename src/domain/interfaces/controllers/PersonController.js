@@ -5,7 +5,6 @@ const personService = new PersonService();
 const addPerson = async (event) => {
 try {
     const { nationalIdentity, name, gender, location, eyeColor, dateBrith } = event.body;
-
     const newPerson = await personService.addPerson({ nationalIdentity, name, gender, location, eyeColor, dateBrith });
 
     return {
@@ -16,9 +15,7 @@ try {
     console.error("Error in addPerson:", error.message); 
 
     return {
-    statusCode: 500,
-    body: JSON.stringify({ message: "error Api"}),
-    };
+    statusCode: 500, body: JSON.stringify({ message: "Internal server error" })   };
 }
 }
 const getPersons = async (event) => {

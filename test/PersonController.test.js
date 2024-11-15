@@ -48,7 +48,8 @@ describe("Person Controller", () => {
 
       const response = await addPerson(event);
       expect(response.statusCode).to.equal(500);
-      expect(JSON.parse(response.body).message).to.equal("error Api");
+      console.log("response",JSON.parse(response.body));
+      expect(JSON.parse(response.body).message).to.equal("Internal server error");
     });
   });
 

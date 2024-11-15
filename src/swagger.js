@@ -4,8 +4,6 @@ module.exports.swagger = async (event) => {
   try {
     const filePath = path.join(__dirname, '../swagger-ui.html');
     const swaggerUI = fs.readFileSync(filePath, 'utf8');
-
-
     return {
       statusCode: 200,
       headers: {
