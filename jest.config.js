@@ -1,4 +1,4 @@
 module.exports = {
-  testPathIgnorePatterns: ['/node_modules/'],
-  testMatch: ['**/test/**/*.test.js'],
+  preset: 'ts-jest',
+  testEnvironment: 'node',
 };

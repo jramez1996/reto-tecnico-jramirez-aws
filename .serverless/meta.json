@@ -166,13 +166,18 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
-                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731634062624-2024-11-15T01:27:42.624Z/reto-aws-lambda-crud.zip"
+                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731657272840-2024-11-15T07:54:32.840Z/reto-aws-lambda-crud.zip"
                 },
-                "Handler": "src/domain/interfaces/controllers/PersonController.addPerson",
+                "Handler": "src/domain/interfaces/controllers/PersonController.addPersonHandler",
                 "Runtime": "nodejs18.x",
                 "FunctionName": "reto-aws-lambda-crud-dev-addPerson",
                 "MemorySize": 1024,
                 "Timeout": 6,
+                "Environment": {
+                  "Variables": {
+                    "NODE_OPTIONS": "--enable-source-maps"
+                  }
+                },
                 "Role": {
                   "Fn::GetAtt": [
                     "IamRoleLambdaExecution",
@@ -189,13 +194,18 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
-                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731634062624-2024-11-15T01:27:42.624Z/reto-aws-lambda-crud.zip"
+                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731657272840-2024-11-15T07:54:32.840Z/reto-aws-lambda-crud.zip"
                 },
-                "Handler": "src/domain/interfaces/controllers/PersonController.getPersons",
+                "Handler": "src/domain/interfaces/controllers/PersonController.getPersonsHandler",
                 "Runtime": "nodejs18.x",
                 "FunctionName": "reto-aws-lambda-crud-dev-getPersons",
                 "MemorySize": 1024,
                 "Timeout": 6,
+                "Environment": {
+                  "Variables": {
+                    "NODE_OPTIONS": "--enable-source-maps"
+                  }
+                },
                 "Role": {
                   "Fn::GetAtt": [
                     "IamRoleLambdaExecution",
@@ -212,13 +222,18 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
-                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731634062624-2024-11-15T01:27:42.624Z/reto-aws-lambda-crud.zip"
+                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731657272840-2024-11-15T07:54:32.840Z/reto-aws-lambda-crud.zip"
                 },
-                "Handler": "src/domain/interfaces/controllers/StarWarsController.getStarWars",
+                "Handler": "src/domain/interfaces/controllers/StarWarsController.handler",
                 "Runtime": "nodejs18.x",
                 "FunctionName": "reto-aws-lambda-crud-dev-getStarWars",
                 "MemorySize": 1024,
                 "Timeout": 6,
+                "Environment": {
+                  "Variables": {
+                    "NODE_OPTIONS": "--enable-source-maps"
+                  }
+                },
                 "Role": {
                   "Fn::GetAtt": [
                     "IamRoleLambdaExecution",
@@ -235,7 +250,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
-                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731634062624-2024-11-15T01:27:42.624Z/reto-aws-lambda-crud.zip"
+                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731657272840-2024-11-15T07:54:32.840Z/reto-aws-lambda-crud.zip"
                 },
                 "Handler": "src/swagger.swagger",
                 "Runtime": "nodejs18.x",
@@ -258,13 +273,18 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-us-east-1-1ed89a6d-808d",
-                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731634062624-2024-11-15T01:27:42.624Z/reto-aws-lambda-crud.zip"
+                  "S3Key": "serverless/reto-aws-lambda-crud/dev/1731657272840-2024-11-15T07:54:32.840Z/reto-aws-lambda-crud.zip"
                 },
                 "Handler": "src/openapi.openapi",
                 "Runtime": "nodejs18.x",
                 "FunctionName": "reto-aws-lambda-crud-dev-openapi",
                 "MemorySize": 1024,
                 "Timeout": 6,
+                "Environment": {
+                  "Variables": {
+                    "NODE_OPTIONS": "--enable-source-maps"
+                  }
+                },
                 "Role": {
                   "Fn::GetAtt": [
                     "IamRoleLambdaExecution",
@@ -276,54 +296,54 @@
                 "OpenapiLogGroup"
               ]
             },
-            "AddPersonLambdaVersionbDNrVMxaBku6IM4qJQJChMM1avT6JNYvRCtc2dn0CdA": {
+            "AddPersonLambdaVersion1CwRJEAZeCPLAt9ym4Et45yYAcoKaX3secVHGvQuyCk": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "AddPersonLambdaFunction"
                 },
-                "CodeSha256": "zQj4G1QgWcJdIqWB2fyzp//PGOBrI0CTK95li0ngN0Y="
+                "CodeSha256": "6Cesw9WphquQcJ4qAswa3dj8AxXR/7UkwUUAsnB465g="
               }
             },
-            "GetPersonsLambdaVersion47p3E6ieKWa3NDv0dLD7TTEgmYPXo7VlP5oj3V2fl8": {
+            "GetPersonsLambdaVersionWI7lUOaRhZHyWCHJDOAX57PWpbbFtr2ttdhbtGwqtZo": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetPersonsLambdaFunction"
                 },
-                "CodeSha256": "zQj4G1QgWcJdIqWB2fyzp//PGOBrI0CTK95li0ngN0Y="
+                "CodeSha256": "6Cesw9WphquQcJ4qAswa3dj8AxXR/7UkwUUAsnB465g="
               }
             },
-            "GetStarWarsLambdaVersionzU2ChPHznqLgFltaY9Ib9IpckhhtrjN58cVH6mGyw": {
+            "GetStarWarsLambdaVersionBTDkEU0XPaoZrQaQw59EmlmtuNBDSmworLH2gPC3Kbo": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetStarWarsLambdaFunction"
                 },
-                "CodeSha256": "zQj4G1QgWcJdIqWB2fyzp//PGOBrI0CTK95li0ngN0Y="
+                "CodeSha256": "6Cesw9WphquQcJ4qAswa3dj8AxXR/7UkwUUAsnB465g="
               }
             },
-            "SwaggerLambdaVersionkpNvRaN6JEGtsOz6H2Kvqlk61h0qKY46Pnv33kS5Z0": {
+            "SwaggerLambdaVersiongIXPSRkVffXxHYfyD6CfFqJWZYIU2r2zIaaYjkIgqE": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "SwaggerLambdaFunction"
                 },
-                "CodeSha256": "zQj4G1QgWcJdIqWB2fyzp//PGOBrI0CTK95li0ngN0Y="
+                "CodeSha256": "6Cesw9WphquQcJ4qAswa3dj8AxXR/7UkwUUAsnB465g="
               }
             },
-            "OpenapiLambdaVersionBf6PWRf1BJGi3o47CR3mnk9OvUtzcswpI9I3g5lkQ": {
+            "OpenapiLambdaVersiong8tWqaWUUgkvmaAJiEKtBTPQ0C5Cm5GTekBg5QUNS9o": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "OpenapiLambdaFunction"
                 },
-                "CodeSha256": "zQj4G1QgWcJdIqWB2fyzp//PGOBrI0CTK95li0ngN0Y="
+                "CodeSha256": "6Cesw9WphquQcJ4qAswa3dj8AxXR/7UkwUUAsnB465g="
               }
             },
             "ApiGatewayRestApi": {
@@ -460,7 +480,7 @@
                 "OpenapiLambdaPermissionApiGateway"
               ]
             },
-            "ApiGatewayDeployment1731634054963": {
+            "ApiGatewayDeployment1731657269377": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -819,7 +839,7 @@
             "AddPersonLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "AddPersonLambdaVersionbDNrVMxaBku6IM4qJQJChMM1avT6JNYvRCtc2dn0CdA"
+                "Ref": "AddPersonLambdaVersion1CwRJEAZeCPLAt9ym4Et45yYAcoKaX3secVHGvQuyCk"
               },
               "Export": {
                 "Name": "sls-reto-aws-lambda-crud-dev-AddPersonLambdaFunctionQualifiedArn"
@@ -828,7 +848,7 @@
             "GetPersonsLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetPersonsLambdaVersion47p3E6ieKWa3NDv0dLD7TTEgmYPXo7VlP5oj3V2fl8"
+                "Ref": "GetPersonsLambdaVersionWI7lUOaRhZHyWCHJDOAX57PWpbbFtr2ttdhbtGwqtZo"
               },
               "Export": {
                 "Name": "sls-reto-aws-lambda-crud-dev-GetPersonsLambdaFunctionQualifiedArn"
@@ -837,7 +857,7 @@
             "GetStarWarsLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetStarWarsLambdaVersionzU2ChPHznqLgFltaY9Ib9IpckhhtrjN58cVH6mGyw"
+                "Ref": "GetStarWarsLambdaVersionBTDkEU0XPaoZrQaQw59EmlmtuNBDSmworLH2gPC3Kbo"
               },
               "Export": {
                 "Name": "sls-reto-aws-lambda-crud-dev-GetStarWarsLambdaFunctionQualifiedArn"
@@ -846,7 +866,7 @@
             "SwaggerLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "SwaggerLambdaVersionkpNvRaN6JEGtsOz6H2Kvqlk61h0qKY46Pnv33kS5Z0"
+                "Ref": "SwaggerLambdaVersiongIXPSRkVffXxHYfyD6CfFqJWZYIU2r2zIaaYjkIgqE"
               },
               "Export": {
                 "Name": "sls-reto-aws-lambda-crud-dev-SwaggerLambdaFunctionQualifiedArn"
@@ -855,7 +875,7 @@
             "OpenapiLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "OpenapiLambdaVersionBf6PWRf1BJGi3o47CR3mnk9OvUtzcswpI9I3g5lkQ"
+                "Ref": "OpenapiLambdaVersiong8tWqaWUUgkvmaAJiEKtBTPQ0C5Cm5GTekBg5QUNS9o"
               },
               "Export": {
                 "Name": "sls-reto-aws-lambda-crud-dev-OpenapiLambdaFunctionQualifiedArn"
@@ -927,7 +947,7 @@
       },
       "functions": {
         "addPerson": {
-          "handler": "src/domain/interfaces/controllers/PersonController.addPerson",
+          "handler": "src/domain/interfaces/controllers/PersonController.addPersonHandler",
           "events": [
             {
               "httpApi": {
@@ -971,15 +991,18 @@
             }
           },
           "name": "reto-aws-lambda-crud-dev-addPerson",
+          "environment": {
+            "NODE_OPTIONS": "--enable-source-maps"
+          },
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "AddPersonLambdaVersionbDNrVMxaBku6IM4qJQJChMM1avT6JNYvRCtc2dn0CdA"
+          "versionLogicalId": "AddPersonLambdaVersion1CwRJEAZeCPLAt9ym4Et45yYAcoKaX3secVHGvQuyCk"
         },
         "getPersons": {
-          "handler": "src/domain/interfaces/controllers/PersonController.getPersons",
+          "handler": "src/domain/interfaces/controllers/PersonController.getPersonsHandler",
           "events": [
             {
               "httpApi": {
@@ -991,15 +1014,18 @@
             }
           ],
           "name": "reto-aws-lambda-crud-dev-getPersons",
+          "environment": {
+            "NODE_OPTIONS": "--enable-source-maps"
+          },
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "GetPersonsLambdaVersion47p3E6ieKWa3NDv0dLD7TTEgmYPXo7VlP5oj3V2fl8"
+          "versionLogicalId": "GetPersonsLambdaVersionWI7lUOaRhZHyWCHJDOAX57PWpbbFtr2ttdhbtGwqtZo"
         },
         "getStarWars": {
-          "handler": "src/domain/interfaces/controllers/StarWarsController.getStarWars",
+          "handler": "src/domain/interfaces/controllers/StarWarsController.handler",
           "events": [
             {
               "httpApi": {
@@ -1011,12 +1037,15 @@
             }
           ],
           "name": "reto-aws-lambda-crud-dev-getStarWars",
+          "environment": {
+            "NODE_OPTIONS": "--enable-source-maps"
+          },
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "GetStarWarsLambdaVersionzU2ChPHznqLgFltaY9Ib9IpckhhtrjN58cVH6mGyw"
+          "versionLogicalId": "GetStarWarsLambdaVersionBTDkEU0XPaoZrQaQw59EmlmtuNBDSmworLH2gPC3Kbo"
         },
         "swagger": {
           "handler": "src/swagger.swagger",
@@ -1035,7 +1064,7 @@
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "SwaggerLambdaVersionkpNvRaN6JEGtsOz6H2Kvqlk61h0qKY46Pnv33kS5Z0"
+          "versionLogicalId": "SwaggerLambdaVersiongIXPSRkVffXxHYfyD6CfFqJWZYIU2r2zIaaYjkIgqE"
         },
         "openapi": {
           "handler": "src/openapi.openapi",
@@ -1049,12 +1078,15 @@
             }
           ],
           "name": "reto-aws-lambda-crud-dev-openapi",
+          "environment": {
+            "NODE_OPTIONS": "--enable-source-maps"
+          },
           "package": {},
           "memory": 1024,
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "OpenapiLambdaVersionBf6PWRf1BJGi3o47CR3mnk9OvUtzcswpI9I3g5lkQ"
+          "versionLogicalId": "OpenapiLambdaVersiong8tWqaWUUgkvmaAJiEKtBTPQ0C5Cm5GTekBg5QUNS9o"
         }
       },
       "plugins": [
@@ -1078,13 +1110,11 @@
         }
       }
     },
-    "serviceRawFile": "service: reto-aws-lambda-crud\r\nframeworkVersion: '4.4.7'\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  lambdaHashingVersion: '20201221'\r\n  region: us-east-1\r\n  iamRoleStatements:\r\n    - Effect: Allow\r\n      Action:\r\n        - dynamodb:*\r\n      Resource:\r\n        - arn:aws:dynamodb:us-east-1:448885973878:table/Person\r\n  httpApi:\r\n    cors:\r\n      allowedOrigins:\r\n        - '*'\r\n      allowedHeaders:\r\n        - Content-Type\r\n        - Access-Control-Allow-Origin\r\n        - Authorization\r\n\r\nfunctions:\r\n  addPerson:\r\n    handler: src/domain/interfaces/controllers/PersonController.addPerson\r\n    events:\r\n      - httpApi:\r\n          path: /person\r\n          method: post\r\n    requestBody:\r\n      description: \"Person object that needs to be added\"\r\n      required: true\r\n      content:\r\n        application/json:\r\n          schema:\r\n            type: object\r\n            properties:\r\n              nationalIdentity:\r\n                type: string\r\n              name:\r\n                type: string\r\n              gender:\r\n                type: string\r\n              location:\r\n                type: string\r\n              eyeColor:\r\n                type: string\r\n              dateBirth:\r\n                type: string\r\n                format: date\r\n\r\n  getPersons:\r\n    handler: src/domain/interfaces/controllers/PersonController.getPersons\r\n    events:\r\n      - httpApi:\r\n          path: /persons\r\n          method: get\r\n\r\n  getStarWars:\r\n    handler: src/domain/interfaces/controllers/StarWarsController.getStarWars\r\n    events:\r\n      - httpApi:\r\n          path: /getStarWars\r\n          method: get\r\n\r\n  swagger:\r\n    handler: src/swagger.swagger\r\n    events:\r\n      - http:\r\n          path: swagger\r\n          method: get\r\n\r\n  openapi:\r\n    handler: src/openapi.openapi\r\n    events:\r\n      - http:\r\n          path: openapi.yml\r\n          method: get\r\n\r\n \r\nplugins:\r\n  - serverless-openapi-documentation\r\n  - serverless-offline\r\n\r\ncustom:\r\n  documentation:\r\n    api:\r\n      info:\r\n        title: \"My API\"\r\n        version: \"1.0.0\"\r\n        description: \"API description\"\r\n      servers:\r\n        - url: \"https://api.example.com\"  # Cambia esto a la URL de tu API en producción\r\n",
+    "serviceRawFile": "service: reto-aws-lambda-crud\r\nframeworkVersion: '4.4.7'\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  lambdaHashingVersion: '20201221'\r\n  region: us-east-1\r\n  iamRoleStatements:\r\n    - Effect: Allow\r\n      Action:\r\n        - dynamodb:*\r\n      Resource:\r\n        - arn:aws:dynamodb:us-east-1:448885973878:table/Person\r\n  httpApi:\r\n    cors:\r\n      allowedOrigins:\r\n        - '*'\r\n      allowedHeaders:\r\n        - Content-Type\r\n        - Access-Control-Allow-Origin\r\n        - Authorization\r\n\r\nfunctions:\r\n  addPerson:\r\n    handler: src/domain/interfaces/controllers/PersonController.addPersonHandler\r\n    events:\r\n      - httpApi:\r\n          path: /person\r\n          method: post\r\n    requestBody:\r\n      description: \"Person object that needs to be added\"\r\n      required: true\r\n      content:\r\n        application/json:\r\n          schema:\r\n            type: object\r\n            properties:\r\n              nationalIdentity:\r\n                type: string\r\n              name:\r\n                type: string\r\n              gender:\r\n                type: string\r\n              location:\r\n                type: string\r\n              eyeColor:\r\n                type: string\r\n              dateBirth:\r\n                type: string\r\n                format: date\r\n\r\n  getPersons:\r\n    handler: src/domain/interfaces/controllers/PersonController.getPersonsHandler\r\n    events:\r\n      - httpApi:\r\n          path: /persons\r\n          method: get\r\n\r\n  getStarWars:\r\n    handler: src/domain/interfaces/controllers/StarWarsController.handler\r\n    events:\r\n      - httpApi:\r\n          path: /getStarWars\r\n          method: get\r\n\r\n  swagger:\r\n    handler: src/swagger.swagger\r\n    events:\r\n      - http:\r\n          path: swagger\r\n          method: get\r\n\r\n  openapi:\r\n    handler: src/openapi.openapi\r\n    events:\r\n      - http:\r\n          path: openapi.yml\r\n          method: get\r\n\r\n \r\nplugins:\r\n  - serverless-openapi-documentation\r\n  - serverless-offline\r\n\r\ncustom:\r\n  documentation:\r\n    api:\r\n      info:\r\n        title: \"My API\"\r\n        version: \"1.0.0\"\r\n        description: \"API description\"\r\n      servers:\r\n        - url: \"https://api.example.com\"  # Cambia esto a la URL de tu API en producción\r\n",
     "command": [
       "deploy"
     ],
-    "options": {
-      "verbose": true
-    },
+    "options": {},
     "error": null,
     "params": {},
     "machineId": "fe8f04d90b8b38ea4437f53f3cd075cc",
@@ -1113,51 +1143,51 @@
     "versionSf": "4.4.7",
     "serviceProviderAwsCfStackName": "reto-aws-lambda-crud-dev",
     "integrations": {},
-    "serviceUniqueId": "arn:aws:cloudformation:us-east-1:448885973878:stack/reto-aws-lambda-crud-dev/3d51ea00-9e9c-11ef-9958-12f2364032c7",
-    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:448885973878:stack/reto-aws-lambda-crud-dev/3d51ea00-9e9c-11ef-9958-12f2364032c7",
-    "serviceProviderAwsCfStackCreated": "2024-11-09T13:12:15.344Z",
-    "serviceProviderAwsCfStackUpdated": "2024-11-15T01:28:06.144Z",
-    "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
+    "serviceUniqueId": "arn:aws:cloudformation:us-east-1:448885973878:stack/reto-aws-lambda-crud-dev/ddccdc90-a326-11ef-aca4-129c20079efd",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:448885973878:stack/reto-aws-lambda-crud-dev/ddccdc90-a326-11ef-aca4-129c20079efd",
+    "serviceProviderAwsCfStackCreated": "2024-11-15T07:54:39.822Z",
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": "CREATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "SwaggerLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-swagger:136",
+        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-swagger:139",
         "Description": "Current Lambda function version",
         "ExportName": "sls-reto-aws-lambda-crud-dev-SwaggerLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "OpenapiLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-openapi:135",
+        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-openapi:138",
         "Description": "Current Lambda function version",
         "ExportName": "sls-reto-aws-lambda-crud-dev-OpenapiLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "HttpApiId",
-        "OutputValue": "s61sug7kk5",
+        "OutputValue": "2dzuhitru7",
         "Description": "Id of the HTTP API",
         "ExportName": "sls-reto-aws-lambda-crud-dev-HttpApiId"
       },
       {
         "OutputKey": "AddPersonLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-addPerson:144",
+        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-addPerson:147",
         "Description": "Current Lambda function version",
         "ExportName": "sls-reto-aws-lambda-crud-dev-AddPersonLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "GetPersonsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-getPersons:143",
+        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-getPersons:146",
         "Description": "Current Lambda function version",
         "ExportName": "sls-reto-aws-lambda-crud-dev-GetPersonsLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "GetStarWarsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-getStarWars:143",
+        "OutputValue": "arn:aws:lambda:us-east-1:448885973878:function:reto-aws-lambda-crud-dev-getStarWars:146",
         "Description": "Current Lambda function version",
         "ExportName": "sls-reto-aws-lambda-crud-dev-GetStarWarsLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ServiceEndpoint",
-        "OutputValue": "https://op82p7dws1.execute-api.us-east-1.amazonaws.com/dev",
+        "OutputValue": "https://fjd6o73rh6.execute-api.us-east-1.amazonaws.com/dev",
         "Description": "URL of the service endpoint",
         "ExportName": "sls-reto-aws-lambda-crud-dev-ServiceEndpoint"
       },
@@ -1168,7 +1198,7 @@
       },
       {
         "OutputKey": "HttpApiUrl",
-        "OutputValue": "https://s61sug7kk5.execute-api.us-east-1.amazonaws.com",
+        "OutputValue": "https://2dzuhitru7.execute-api.us-east-1.amazonaws.com",
         "Description": "URL of the HTTP API",
         "ExportName": "sls-reto-aws-lambda-crud-dev-HttpApiUrl"
       }

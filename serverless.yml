@@ -23,7 +23,7 @@ provider:
 
 functions:
   addPerson:
-    handler: src/domain/interfaces/controllers/PersonController.addPerson
+    handler: src/domain/interfaces/controllers/PersonController.addPersonHandler
     events:
       - httpApi:
           path: /person
@@ -51,14 +51,14 @@ functions:
                 format: date
 
   getPersons:
-    handler: src/domain/interfaces/controllers/PersonController.getPersons
+    handler: src/domain/interfaces/controllers/PersonController.getPersonsHandler
     events:
       - httpApi:
           path: /persons
           method: get
 
   getStarWars:
-    handler: src/domain/interfaces/controllers/StarWarsController.getStarWars
+    handler: src/domain/interfaces/controllers/StarWarsController.handler
     events:
       - httpApi:
           path: /getStarWars
